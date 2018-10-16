@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_pilih_gambar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pilih Gambar"/>
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/image_src"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_get_pixel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Get Pixel"/>
+            <Button
+                android:id="@+id/btn_flip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Flip Vertical"/>
+            <Button
+                android:id="@+id/btn_flip_h"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Flip Horizontal"/>
+            <Button
+                android:id="@+id/btn_brightness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brightness +20"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_pixel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp" />
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/image_out"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+    </LinearLayout>
+
+</ScrollView>

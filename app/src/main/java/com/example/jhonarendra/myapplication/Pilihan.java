@@ -31,4 +31,8 @@ public class Pilihan extends AppCompatActivity{
         Intent intent = new Intent(getApplicationContext(), GaussianFilter.class);
         startActivity(intent);
     }
+    public void tesGetPixel(View view){
+        Intent intent = new Intent(getApplicationContext(), TesGetPixel.class);
+        startActivity(intent);
+    }
 }

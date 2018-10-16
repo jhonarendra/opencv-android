@@ -1,12 +1,3 @@
 <resources>
-    <string name="app_name">tes opencv</string>
-    <string-array name="agama">
-        <item>--Pilih agama--</item>
-        <item>Hindu</item>
-        <item>Islam</item>
-        <item>Katolik</item>
-        <item>Protestan</item>
-        <item>Budha</item>
-        <item>Konghucu</item>
-    </string-array>
+    <string name="app_name">Computer Vision</string>
 </resources>
