@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+
+
 /**
  * Created by Jhonarendra on 9/27/2018.
  */
@@ -33,6 +35,14 @@ public class Pilihan extends AppCompatActivity{
     }
     public void tesGetPixel(View view){
         Intent intent = new Intent(getApplicationContext(), TesGetPixel.class);
+        startActivity(intent);
+    }
+    public void tesHough(View view){
+        Intent intent = new Intent(getApplicationContext(), TesHough.class);
+        startActivity(intent);
+    }
+    public void tesHoughInput(View view){
+        Intent intent = new Intent(getApplicationContext(), TesHoughInput.class);
         startActivity(intent);
     }
 }

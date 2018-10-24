@@ -24,6 +24,8 @@
         <activity android:name=".CannyFilter" />
         <activity android:name=".GaussianFilter" />
         <activity android:name=".TesGetPixel" />
+        <activity android:name=".TesHough" />
+        <activity android:name=".TesHoughInput" />
     </application>
 
 </manifest>
