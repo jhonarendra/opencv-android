@@ -37,7 +37,6 @@ import static org.opencv.core.Core.circle;
 
 public class TesHoughInput extends AppCompatActivity {
     private static int RESULT_LOAD_IMG = 1;
-    Bitmap bitmap;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +59,9 @@ public class TesHoughInput extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             try {
+                // ===============================
+                // Menampilkan selected image
+                // ===============================
                 final Uri imgUri = data.getData();
                 final InputStream imgStream;
                 imgStream = getContentResolver().openInputStream(imgUri);
@@ -70,12 +72,84 @@ public class TesHoughInput extends AppCompatActivity {
                 final ImageView imgOut = (ImageView) findViewById(R.id.image_out);
 
                 imgSrc.setImageBitmap(bitmap);
-//                bitmap = ((BitmapDrawable)imgSrc.getDrawable()).getBitmap();
 
-//		Bitmap bmp = Bitmap.createBitmap(greyImg.cols(), greyImg.rows(), Bitmap.Config.ARGB_8888);
+                // ================================
+                // Fungsi Hough Transform Onclick
+                // ================================
 
                 Button btnHough = (Button) findViewById(R.id.btn_hough);
+                Button btnLine = (Button) findViewById(R.id.btn_hough_line);
+                Button btnCircle = (Button) findViewById(R.id.btn_hough_circle);
 
+
+                // =============================
+                // Button Hough Line
+                // =============================
+                btnLine.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Mat input = new Mat();
+                        Mat mRGB = new Mat();
+                        Mat lines = new Mat();
+
+                        Utils.bitmapToMat(bitmap, mRGB);
+                        Imgproc.cvtColor(mRGB, input, Imgproc.COLOR_RGB2GRAY);
+                        Imgproc.blur(input, input, new Size(7, 7), new Point(2,2));
+                        Imgproc.Canny(input, input, 50, 50);
+                        Bitmap bmp = Bitmap.createBitmap(input.cols(), input.rows(), Bitmap.Config.ARGB_8888);
+                        Imgproc.HoughLinesP(input, lines, 1, Math.PI/180, 50, 20, 20);
+
+                        for(int x = 0; x <lines.cols(); x++){
+                            double[] vec = lines.get(0, x);
+                            double x1 = vec[0], y1 = vec[1], x2 = vec[2], y2 = vec[3];
+                            Point start = new Point(x1, y1);
+                            Point end = new Point(x2, y2);
+                            Core.line(mRGB, start, end, new Scalar(0,0,255,255), 3);
+                        }
+
+                        Utils.matToBitmap(mRGB, bmp);
+                        imgOut.setImageBitmap(bmp);
+                    }
+                });
+
+                // =============================
+                // Button Hough Circle
+                // =============================
+                btnCircle.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Mat input = new Mat();
+                        Mat mRGB = new Mat();
+                        Mat circles = new Mat();
+
+                        Utils.bitmapToMat(bitmap, mRGB);
+                        Imgproc.cvtColor(mRGB, input, Imgproc.COLOR_RGB2GRAY);
+                        Imgproc.blur(input, input, new Size(7, 7), new Point(2,2));
+                        Imgproc.Canny(input, input, 50, 50);
+                        Imgproc.HoughCircles(input, circles, Imgproc.CV_HOUGH_GRADIENT, 2, 100, 100, 90, 0, 1000);
+                        Bitmap bmp = Bitmap.createBitmap(input.cols(), input.rows(), Bitmap.Config.ARGB_8888);
+
+                        if(circles.cols()>0){
+                            for(int x=0; x<Math.min(circles.cols(), 5); x++){
+                                double circleVect[] = circles.get(0, x);
+                                if(circleVect == null){
+                                    break;
+                                }
+                                Point center = new Point((int)circleVect[0], (int) circleVect[1]);
+                                int radius = (int) circleVect[2];
+
+                                circle(mRGB, center, radius, new Scalar(255,0,0,255),3, 8,0);
+                            }
+                        }
+                        Utils.matToBitmap(mRGB, bmp);
+                        imgOut.setImageBitmap(bmp);
+
+                    }
+                });
+
+                // =============================
+                // Button Hough Line and Circle
+                // =============================
                 btnHough.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

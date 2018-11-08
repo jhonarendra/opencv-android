@@ -20,11 +20,27 @@
             android:id="@+id/image_src"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/btn_hough"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pindai"/>
+            android:orientation="horizontal"
+            android:gravity="center">
+            <Button
+                android:id="@+id/btn_hough_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Line"/>
+            <Button
+                android:id="@+id/btn_hough_circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Circle"/>
+            <Button
+                android:id="@+id/btn_hough"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hough"/>
+        </LinearLayout>
         <ImageView
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
