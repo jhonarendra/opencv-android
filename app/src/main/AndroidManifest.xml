@@ -24,8 +24,15 @@
         <activity android:name=".CannyFilter" />
         <activity android:name=".GaussianFilter" />
         <activity android:name=".TesGetPixel" />
-        <activity android:name=".TesHough" />
-        <activity android:name=".TesHoughInput" />
+        <activity
+            android:name=".TesHough"
+            android:label="Hough Camera"
+            android:screenOrientation="landscape"
+            android:parentActivityName=".Pilihan"/>
+        <activity
+            android:name=".TesHoughInput"
+            android:label="Hough Input"
+            android:parentActivityName=".Pilihan"/>
     </application>
 
 </manifest>

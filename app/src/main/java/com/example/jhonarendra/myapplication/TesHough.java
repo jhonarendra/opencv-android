@@ -129,7 +129,7 @@ public class TesHough extends AppCompatActivity implements CameraBridgeViewBase.
             double x1 = vec[0], y1 = vec[1], x2 = vec[2], y2 = vec[3];
             Point start = new Point(x1, y1);
             Point end = new Point(x2, y2);
-            Core.line(input, start, end, new Scalar(255,0,0), 3);
+            Core.line(input, start, end, new Scalar(255,255,0), 3);
         }
 
         if(circles.cols()>0){
@@ -142,7 +142,7 @@ public class TesHough extends AppCompatActivity implements CameraBridgeViewBase.
                 int radius = (int) circleVect[2];
 
 //                circle(input, center, 3, new Scalar(0, 255, 0), -1, 8, 0);
-                circle(input, center, radius, new Scalar(255,0,0),3, 8,0);
+                circle(input, center, radius, new Scalar(255,255,0),3, 8,0);
             }
         }
         circles.release();

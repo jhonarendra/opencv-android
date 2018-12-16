@@ -3,51 +3,25 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
     <LinearLayout
         android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:padding="20dp">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:src="@drawable/opencv_icon"/>
         <TextView
-            android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textSize="32dp"
-            android:text="Aplikasi Filter Kamera menggunakan OpenCV 2.4"/>
-        <Button
-            android:id="@+id/normal_filter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Normal"
-            android:onClick="setFilterNormal"/>
-        <Button
-            android:id="@+id/grayscale_filter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Grayscale"
-            android:onClick="setFilterGrayscale"/>
-        <Button
-            android:id="@+id/canny_filter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Canny"
-            android:onClick="setFilterCanny"/>
-        <Button
-            android:id="@+id/gaussian_filter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gaussian"
-            android:onClick="setFilterGaussian"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Get Pixel"
-            android:onClick="tesGetPixel"/>
+            android:text="Aplikasi Computer Vision Hough Transform"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
